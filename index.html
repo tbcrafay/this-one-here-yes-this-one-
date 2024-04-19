@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <style>
+        nav {
+            background-color: #03225b;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 300%;
+            z-index: 999;
+            /* Ensure navbar is above other content */
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: left;
+            margin-left: 20px;
+        }
+
+        .right-hand-side {
+            margin-left: auto;
+        }
+
+        nav li {
+            margin-right: 22px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-style: oblique;
+            font-size: larger;
+        }
+
+        .login {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+        }
+
+        .login a {
+            margin-right: 5px;
+            margin-left: 5px;
+
+        }
+
+        #signup-form,
+        #login-form {
+            display: none;
+            font-size: large;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #03225b;
+            border-radius: 5px;
+            background-color: #5f99db;
+            position: fixed;
+            top: 50%;
+            /* Center the form vertically */
+            left: 50%;
+            /* Center the form horizontally */
+            transform: translate(-50%, -50%);
+            /* Center the form precisely */
+            z-index: 998;
+            /* Ensure form is above other content except navbar */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container input[type="text"],
+        .container input[type="password"],
+        .container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        .container input[type="submit"] {
+            background-color: #03225b;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .container input[type="submit"]:hover {
+            background-color: #5f99db;
+        }
+
+        .container p {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #signup-form button[type="submit"] {
+            background-color: #03225b;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #signup-form button[type="submit"]:hover {
+            background-color: #5f99db;
+        }
+
+        #login-form {
+            display: none;
+        }
+
+        h6 {
+            text-align: center;
+            font-weight: bolder;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+
+        <ul>
+            
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li class="right-hand-side"><a href="#" id="login-link">Log in</a></li>
+            <li><a href="#" id="signup-link">Sign up</a></li>
+        </ul>
+    </nav>
+    <div id="signup-form">
+        <h2>Sign up Form</h2>
+        <form action="/submit_signup" method="post">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <label for="confirm_password">Confirm Password:</label><br>
+            <input type="password" id="confirm_password" name="confirm_password" required> <br>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="container" id="login-form">
+        <h2>Login</h2>
+        <form action="#" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+        <p>Don't have an account? <a href="#" id="login-to-signup">Sign up</a></p>
+    </div>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/project img 1.avif" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <!-- <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p> -->
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/project img2.avif" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <!-- <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p> -->
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/luis-villasmil-4V8uMZx8FYA-unsplash (1).jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <!-- <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p> -->
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <h6>Which Phone are you looking for?</h6>
+    <script>
+        // JavaScript to show the signup form when the signup link is clicked
+        document.getElementById("signup-link").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent the default behavior of link
+            document.getElementById("signup-form").style.display = "block";
+            document.getElementById("login-form").style.display = "none"; // Hide login form
+        });
+
+        // JavaScript to show the login form when the login link is clicked
+        document.getElementById("login-link").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent the default behavior of link
+            document.getElementById("login-form").style.display = "block";
+            document.getElementById("signup-form").style.display = "none"; // Hide signup form
+        });
+
+        // JavaScript to switch from login form to signup form when clicked
+        document.getElementById("login-to-signup").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent the default behavior of link
+            document.getElementById("login-form").style.display = "none";
+            document.getElementById("signup-form").style.display = "block";
+        });
+    </script>
+</body>
+
+</html>
